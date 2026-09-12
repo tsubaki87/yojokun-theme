@@ -1,0 +1,59 @@
+
+#masthead.moved {
+    background-color: #fff;
+    transition: all 0.5s ease 0s;
+}
+
+.site-header {
+    position: fixed;
+    z-index: 90;
+    width: 100%;
+
+    .site-header-wrap {
+        max-width: 1248px;
+        margin: 0 auto;
+        padding: 0 16px 0 62px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background-color: #79cdf7; */
+    
+        .site-branding {
+            // background-color: #ec83cc;
+            margin-right: 30px;
+
+            .custom-logo-link {
+                .custom-logo {
+                    .pc {
+                        max-width: 45px;
+                        padding: 7px 0 0;
+                    }
+                    .sp {
+                        width: 45px;
+                        padding: 7px 0;
+                    }
+                }
+            }
+        }
+    
+        .site-header-right-side {
+            display: flex;
+            flex-direction: row-reverse;
+            .main-navigation {
+                // background-color: #c0cde2;
+            }
+            .social-media-wrap {
+                .social-media {
+                    li {
+                        a {
+                            * {
+                                color: #000;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

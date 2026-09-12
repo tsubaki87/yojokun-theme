@@ -1,0 +1,142 @@
+// layouts/_archive.scss
+
+body.archive.tax-map-cat {
+    #page {
+        .site-main {
+            iframe {
+                width: 100%;
+                margin-top: 60px;
+            }
+        }
+    }
+}
+
+body.archive {
+    #page {
+        background-color: #f8f8e0;
+        .archive-top-sky {
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: center center;
+            }
+        }
+        .site-main:has(article.category-academic) {
+            background-color: #fff;
+        }
+        .site-main {
+            .archive-list_wrap {
+                max-width: 600px;
+                article.category-council-secretariat,
+                article.category-furusato-museum,
+                article.category-related-organizations,
+                article.category-all-generations,
+                article.category-people-of-kaihara,
+                article.category-ekiken {
+                    background: #847C81;
+                    .entry-header .entry-title a {
+                        color: #fff;
+                    }
+                }
+                article.category-supplement,
+                article.category-yojokun {
+                    background: #7d859e;
+                    .entry-header .entry-title a {
+                        color: #fff;
+                    }
+                }
+                article.category-historic-site {
+                    background: #6F837C;
+                    .entry-header .entry-title a {
+                        color: #fff;
+                    }
+                }
+                article.category-collection-library {
+                    background: #8f957d;
+                    .entry-header .entry-title a {
+                        color: #fff;
+                    }
+                }
+
+                article {
+                    background: #dfdfdf;
+                    padding: 3px 24px;
+                    .entry-header {
+                        .entry-title {
+                             a {
+                                 // color: #fff;
+                                 display: block;
+                                 height: unset;
+                             }
+                        }
+                        .entry-meta {
+                            display: none;
+                        }
+                    }
+                    .get_articles_in_category__wrap,
+                    .entry-content,
+                    .entry-footer,
+                    .post-thumbnail {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .site-main {
+            // background-color: $color__background-theme;
+            // background-color: #fff;
+            padding: 0 60px 100px;
+            div {
+                .page-header {
+                    text-align: center;
+                    margin: 40px auto 40px;
+                    max-width: 600px;
+                    .page-title {
+                        font-size: 1.4rem;
+                        margin: 0;
+                    }
+                    .archive-description {
+                        text-align: left;
+                    }
+                }
+            }
+            .wrap_grid_auto-fill {
+                article {
+                    width: 260px;
+                    // background: yellow;
+                    margin: 0 auto;
+                    .entry-header {
+                        text-align: center;
+                        .entry-title {
+                            font-size: 1.1rem;
+                            line-height: 1.4rem;
+                            margin: 0;
+                        }
+                        .entry-meta {
+                            font-size: .8rem;
+                        }
+                    }
+                    .post-thumbnail {
+                        margin-top: 10px;
+                    }
+                    .entry-content {
+                        margin-top: 10px;
+                        * {
+                            font-size: .9rem;
+                            margin: 0;
+                        }
+                        iframe,
+                        figure {
+                            display: none;
+                        }
+                    }
+                    .entry-footer {
+                        font-size: .8rem;
+                    }
+                }
+            }
+        }
+    }
+}

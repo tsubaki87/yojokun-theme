@@ -1,0 +1,65 @@
+// layouts/_search.scss
+
+body.error404,
+body.search {
+    #page {
+        .site-main {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding-top: 70px;
+            .page-header {
+                text-align: center;
+                .page-title {
+                    font-size: 1.6rem;
+                    text-decoration: underline;
+                }
+            }
+            article {
+                border-bottom: solid 1px #000;
+                padding-bottom: 20px;
+                .post-thumbnail {
+                    display: none;
+                }
+            }
+        }
+        aside {
+           display: none;
+        }
+        @include media(lg) {
+            .site-main {
+                margin: 0 20px;
+            }
+        }
+    }
+}
+
+body.error404 {
+    #page {
+        .site-main {
+            .page-content {
+                margin-bottom: 3em;
+                .widget {
+                    // display: none;
+                }
+            }
+        }
+    }
+}
+
+body.error404 {
+    #page {
+        .site-main {
+            .error-404 {
+                .page-header {
+                    .page-title {
+                        border: solid 2px #f8a074;
+                        padding: 10px;
+                    }
+                }
+                .page-content {
+                    display: none;
+                }
+            }
+        }
+    }
+}

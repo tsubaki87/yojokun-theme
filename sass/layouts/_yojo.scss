@@ -1,0 +1,230 @@
+// layouts/_yojo.scss
+
+body.single,
+body.page {
+    p {
+    	line-height: 2.2;
+    }
+    .post-thumbnail {
+        margin-bottom: 60px;
+    }
+}
+body.archive,
+body.single,
+body.page {
+    h2 {
+        font-size: 1.4rem;
+    }
+    h3 {
+        font-size: 1.2rem;
+    }
+    h4 {
+        font-size: 1rem;
+    }
+    h5 {
+        font-size: .9rem;
+    }
+    h6 {
+        font-size: .85rem;
+    }
+}
+
+body {
+    .site {
+        // background: #fdf3ea;
+
+        .site-header {
+            // background: #c6dffe;
+        }
+        .site-main {
+            // background: #f2edc5;
+            // background: #fcfae3;
+
+            // grid設定 ---
+            .wrap_grid-16,
+            .wrap_grid-32,
+            .wrap_grid-64,
+            .wrap_grid {
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+                gap: 0;
+                align-items: center;
+            }
+            @include media(lg) {
+                .wrap_grid-16,
+                .wrap_grid-32,
+                .wrap_grid-64,
+                .wrap_grid {
+                    grid-template-columns: repeat(6, 1fr);
+                }
+            }
+            @include media(sm) {
+                .wrap_grid-16,
+                .wrap_grid-32,
+                .wrap_grid-64,
+                .wrap_grid {
+                    grid-template-columns: repeat(1, 1fr);
+                }
+            }
+                
+            .wrap_grid_auto-fill {
+                display: grid;
+                // grid-template-columns: repeat(auto-fill, minmax(35px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+                // grid-template-columns: repeat(auto-fit, 35px);
+                gap: 64px;
+            }
+            .wrap_grid-64 {
+                gap: 64px;
+            }
+            .wrap_grid-32 {
+                gap: 32px;
+            }
+            .wrap_grid-16 {
+                gap: 16px;
+            }
+            .grid_col_12 > * {
+                grid-column: span 12;
+            }
+            .grid_col_6 > * {
+                grid-column: span 6;
+            }
+            .grid_col_4 > * {
+                grid-column: span 4;
+            }
+            .grid_col_3 > * {
+                grid-column: span 3;
+            }
+            .grid_col_2 > * {
+                grid-column: span 2;
+            }
+            .grid_col_1 * {
+                grid-column: span 1;
+            }
+            // grid設定 --- end
+
+            .position_center {
+                max-width: 1366px;
+                margin: 0 auto;
+                // background: #fafae273
+            }
+            .position_center_transform-r {
+                margin-right: calc(-50vw + 50%);
+                display: flex;
+                .home-about_wrap {
+                    max-width: 1330px;
+                }
+            }
+            .position_center_transform-l {
+                margin-left: calc(-50vw + 50%);
+                display: flex;
+                flex-direction: row-reverse;
+                .home-about_wrap {
+                    max-width: 1330px;
+                }
+            }
+            .position_wide {
+                width: 100%;
+                // background: #98b8fb;
+            }
+
+            // Waveの設定 ====================
+            .section01 {
+                position: relative;
+                // background: #e5f6ae;
+            }
+            .section01 * {
+                z-index: 10;
+            }
+            .wave00-event:before,
+            .wave00-news:before,
+            .wave00-horizontal:before,
+            .wave00:before {
+                content: '';
+                // top: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;/*指定したい幅*/
+                // padding-top: 90%;/*画像の幅に対する高さ比率*/
+                display: block;
+            }
+            .wave00-event:after,
+            .wave00-news:after,
+            .wave00-horizontal:after,
+            .wave00:after {
+                position: absolute;
+                content: '';
+                // top: 0;
+                bottom: 0;
+                left:0;
+                display: block;
+                width: 100%;/*幅*/
+                // height: 100%;/*どれだけデカくなってもはみ出ないであろう高さを指定*/
+                // background-image: url(./img/wave00.png);
+                // background-size: contain;
+                background-size: cover;
+                background-repeat: no-repeat;/*画像を繰り返さない*/
+            }
+            .wave00:after {
+                background-image: url(./img/wave00-wide.png);
+                height: 90%;/*どれだけデカくなってもはみ出ないであろう高さを指定*/
+            }
+            @include media(xl) {
+                .wave00:after {
+                    background-image: url(./img/wave00.png);
+                    height: 90%;/*どれだけデカくなってもはみ出ないであろう高さを指定*/
+                }
+            }
+            .wave00-horizontal:after {
+                background-image: url(./img/wave00-horizontal-wide.png);
+                height: 100%;/*どれだけデカくなってもはみ出ないであろう高さを指定*/
+            }
+            @include media(xl) {
+                .wave00-horizontal:after {
+                    background-image: url(./img/wave00-horizontal.png);
+                    height: 100%;/*どれだけデカくなってもはみ出ないであろう高さを指定*/
+                }
+            }
+            .wave00-news:after {
+                background-image: url(./img/wave-news-2.png);
+                height: 40%;/*どれだけデカくなってもはみ出ないであろう高さを指定*/
+            }
+            @include media(sm) {
+                .wave00-news:after {
+                    display: none;
+                }
+            }
+
+            .wave00-event:after {
+                background-image: url(./img/wave-event.png);
+                height: 40%;/*どれだけデカくなってもはみ出ないであろう高さを指定*/
+            }
+            .wave00-event {
+                background-color: #f8d388;
+                padding-bottom: 200px;
+            }
+            .wave00-action {
+                background-color: #f9d186;
+            }
+            // Waveの設定 ==================== end
+        }
+        .widget-area {
+            background: #ffe4c8;
+        }
+        .site-footer {
+            // background: linear-gradient(to top, #fff, #8fa3ff);
+            // background: #436c52;
+            // background: #8fa3ff;
+            background: #d4d7e6;
+        }
+    }
+}
+
+.statistics_visitor {
+    background-color: #fcfae3;
+    text-align: center;
+    padding-bottom: 30px;
+    .number {
+        font-size: 1.2rem;
+    }
+}

@@ -1,0 +1,48 @@
+.sticky {
+	display: block;
+}
+
+.post,
+.page {
+	margin: 0 0 1.5em;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+// body.category,
+body.archive,
+body.tag,
+body.home {
+    // .entry-header h2,
+    // .entry-title h4 {
+    //     /* 1行数のみ表示 */
+    //     width: 100%;
+    //     white-space: nowrap;
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    // }
+    .entry-content {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3; /* 任意の行数を指定 */
+
+        div,
+        .figure {
+            display: none;
+        }
+    }
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}

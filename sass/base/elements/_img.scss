@@ -1,0 +1,34 @@
+// _img.scss
+
+// ズームUP ---
+article {
+    a:has(> img) {
+        display: block;
+        // background: #ccc;
+    }
+    
+    .thumbnail,
+    a {
+        width: 100%;
+        height: 150px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 20px;
+        img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: .5s all;
+        }
+        img:hover {
+            transform:scale(1.2,1.2);
+            transition: .5s all;
+        }
+    }
+    .thumbnail:hover,
+    a:hover {
+        border-radius: 20px;
+    }
+}
+// ズームUP --- end

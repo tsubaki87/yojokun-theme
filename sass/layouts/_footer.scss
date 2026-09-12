@@ -1,0 +1,93 @@
+// ayouts/_footer.scss
+
+body{
+    .site-footer {
+        // .footer-wave-sm {
+        //     img {
+        //         display: block;
+        //         width: 100%;
+        //         height: 100%;
+        //         background-size: cover;
+        //         background-position: center center;
+        //     }
+        // }
+        .site-info {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            .subtitle {
+                margin-top: 20px;
+            }
+            h4 {
+                margin-bottom: 7px;
+                margin-top: 0;
+                line-height: 1rem;
+            }
+            p {
+                margin-top: 0;
+                line-height: 1rem;
+            }
+            .footer-navigation {
+                .menu-footer-menu-container {
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        flex-wrap: wrap;
+                        justify-content: space-evenly;
+                        margin: 0;
+                        padding: 0;
+                        li {
+                            list-style: none;
+                            width: 230px;
+                            padding: 0 5px;
+                            a {
+                                font-size: .85rem;
+                                line-height: .9rem;
+                            }
+                        }
+                        li::after {
+                            content:"\25B7";
+                            margin-left: 10px;
+                        }
+                        li:hover::after {
+                            content:"\25B6\FE0E";
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+        }
+        @include media(md) {
+            .site-info {
+                flex-direction: column;
+                .footer-info {
+                    text-align: center;
+                }
+                .footer-navigation {
+                    .menu-footer-menu-container {
+                        ul {
+                            flex-direction: row;
+                            margin-top: 10px;
+                            li {
+                                width: 110px;
+                                text-align: center;
+                                border-left: solid 1px #000;
+                                line-height: 1.4rem;
+                                margin-bottom: 20px;
+                                a {
+                                    display: block;
+                                }
+                            }
+                            li:last-of-type {
+                                border-right: solid 1px #000;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .footer-rigfts {
+            text-align: center;
+        }
+    }
+}

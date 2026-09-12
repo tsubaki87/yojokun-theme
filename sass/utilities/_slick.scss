@@ -1,0 +1,123 @@
+// utilities/_slick.scss
+
+.site-main {
+    .slider_wrap {
+        .dots-1 {
+            display:none;
+        }
+        .slider-1_wrap {
+            .slider-1{
+                .slick-list {
+                    .slick-track {
+                        li {
+                            img {
+                                // height: calc(100vh - 81px);
+                                height: 100vh;
+                            }
+                            .head-copy01_wrap,
+                            .head-copy02_wrap,
+                            .slider_textarea_right,
+                            .slider_textarea_left-under,
+                            .slider_textarea_center02,
+                            .slider_textarea_center {
+                                position: absolute;
+                                transform: translateY(-50%) translateX(-50%);
+                                -webkit-transform: translateY(-50%) translateX(-50%);
+
+                                .slider__lead,
+                                .slider__midle,
+                                .slider__text {
+                                  font-weight: bold;
+                                  color: #000;
+                                }
+                                .slider__lead {
+                                  font-size: 2.6rem;
+                                }
+                                .slider__midle {
+                                  font-size: 2rem;
+                                }
+                                .slider__text {
+                                  font-size: 1.4rem;
+                                }
+                                .deco01 {
+                                    box-decoration-break: clone;
+                                    -webkit-box-decoration-break: clone;
+                                    display: inline;
+                                    padding: 0.3em;
+                                    line-height: 2;
+                                    background-color: #010101;
+                                    color: #ff8201;
+                                }
+                            }
+                            .slider_textarea_center {
+                                top: 50%;
+                                left: 50%;
+                                text-align: center;
+                            }
+                            .slider_textarea_center02 {
+                                top: 75%;
+                                left: 50%;
+                                text-align: center;
+                            }
+                            .slider_textarea_left-under {
+                                top: 70%;
+                                left: 30%;
+                            }
+                            .slider_textarea_right {
+                                top: 35%;
+                                left: 70%;
+                            }
+                            .bg-white {
+                                background: #ffffff73;
+                                padding: 10px 20px 5px;
+                            }
+                            .bg-white02 {
+                                background: #ffffffd9;
+                                padding: 10px 20px 5px;
+                            }
+                            .bg-white03 {
+                                background: #2b408cd9;
+                                padding: 10px 20px 5px;
+                                .slider__text {
+                                    color: #fff;
+                                    // line-height: 1.8rem;
+                                    // margin: 10px;
+                                }
+                                .slider__lead,
+                                .slider__midle {
+                                    color: #e3e5b2;
+                                    // line-height: 2.4rem;
+                                }
+                            }
+                            .bg-white05 {
+                                background: #812626;
+                                padding: 10px 20px 5px;
+                                .slider__text {
+                                    color: #fff;
+                                }
+                                .slider__lead,
+                                .slider__midle {
+                                    color: #e3e5b2;
+                                }
+                            }
+                            .head-copy01_wrap {
+                                top: 40%;
+                                right: -100px;
+                                .head-copy01 {
+                                    height: 600px;
+                                }
+                            }
+                            .head-copy02_wrap {
+                                top: 40%;
+                                left: 55%;
+                                .head-copy02 {
+                                    height: 400px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

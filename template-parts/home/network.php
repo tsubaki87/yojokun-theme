@@ -1,0 +1,11 @@
+<div id="network"></div>
+<div class="position_wide section01 wave00-horizontal about-network">
+	<div class="wrap_grid grid_col_12 position_center">
+		<div class="title"><h1>Network</h1><p>関連団体</p></div>
+	</div><!-- .wrap_grid -->
+	<div class="position_center home-about_net-list_wrap">
+		<div class="wrap_grid-16 grid_col_2 position_center js-fadeUp-wrap">
+			<?php get_template_part('template-parts/home/taxonomy-list-network'); ?>
+		</div><!-- .wrap_grid -->
+	</div>
+</div><!-- position_wide -->

@@ -1,0 +1,56 @@
+a {
+	// color: $color__link;
+    text-decoration: none;
+    color: initial;
+	&:hover {
+        text-decoration: underline;
+    }
+
+	&:visited {
+		// color: $color__link-visited;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		// color: $color__link-hover;
+	}
+
+	&:focus {
+		outline: thin dotted;
+	}
+
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+/* Yojo-style */
+.youken-link {
+    p {
+        margin-top: 0;
+        border-bottom: solid 1px #000;
+        margin-bottom: 4px;
+        padding-bottom: 2px;
+        font-size: .95rem;
+    }
+    p:hover:after {
+        content: "\025b7";
+        color: #ffaf5d;
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+        margin-left: 10px;
+    }
+}
+.external-link  {
+    background: #cbb86c;
+    padding: 6px 12px;
+    a:after {
+        content: "\25B7\5916\90E8\30EA\30F3\30AF";
+        color: #fff;
+        font-size: .9rem;
+        line-height: 1.2rem;
+        margin-left: 10px;
+    }
+}

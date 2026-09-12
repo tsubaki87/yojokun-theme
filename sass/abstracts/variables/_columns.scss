@@ -1,0 +1,31 @@
+$columns: (
+	1: 100%,
+	2: 50%,
+	3: 33.33%,
+	4: 25%,
+	5: 20%,
+	6: 16.66%,
+	7: 14.28%,
+	8: 12.5%,
+	9: 11.11%
+);
+
+$columns__margin: 3.8%;
+
+// SCSSでメーディアクエリ
+$breakpoints: (
+    // 'sm': 'screen and (min-width: 576px)',
+    // 'md': 'screen and (min-width: 768px)',
+    // 'lg': 'screen and (min-width: 992px)',
+    // 'xl': 'screen and (min-width: 1200px)',
+    'sm': 'screen and (max-width: 576px)',
+    'md': 'screen and (max-width: 768px)',
+    'lg': 'screen and (max-width: 992px)',
+    'xl': 'screen and (max-width: 1200px)',
+) !default;
+
+@mixin media($breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}

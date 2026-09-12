@@ -1,0 +1,67 @@
+// layouts/_page.scss
+
+body.page {
+    #page {
+        .site-main {
+            // background: #f1f1e4;
+            background-color: $color__background-theme;
+            .wrap_grid {
+                max-width: 726px;
+                article {
+                    margin-top: 100px;
+                    background-color: #fff;
+                    padding: 30px;
+                    // border-radius: 60px;
+                    .entry-header {
+                        text-align: center;
+                        .entry-title {
+                            font-size: 1.4rem;
+                            border-bottom: dotted 3px #000;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Waveの設定 ====================
+        .site-main {
+            position: relative;
+            div {
+                article {
+                    .post-thumbnail {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        .site-main * {
+            z-index: 10;
+        }
+        .site-main:before {
+            content: '';
+            // top: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;/*指定したい幅*/
+            // padding-top: 90%;/*画像の幅に対する高さ比率*/
+            display: block;
+        }
+        .site-main:after {
+            position: absolute;
+            content: '';
+            // top: 0;
+            bottom: 0;
+            left:0;
+            display: block;
+            width: 100%;/*幅*/
+            // height: 100%;/*どれだけデカくなってもはみ出ないであろう高さを指定*/
+            // background-image: url(./img/wave00.png);
+            // background-size: contain;
+            background-size: cover;
+            background-repeat: no-repeat;/*画像を繰り返さない*/
+            background-image: url(./img/wave04.png);
+            height: 100%;/*どれだけデカくなってもはみ出ないであろう高さを指定*/
+        }
+        // Waveの設定 ==================== end
+    }
+}

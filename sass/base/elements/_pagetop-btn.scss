@@ -1,0 +1,88 @@
+#page_top {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  z-index: 80;
+  right: 0;
+  bottom: -100px;
+  // opacity: 0.6;
+  -webkit-transition: 0.8s;
+  -o-transition: 0.8s;
+  transition: 0.8s;
+
+  a {
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 100px;
+    text-decoration: none;
+
+      .balloon {
+        position: relative;
+        right: 20px;
+        bottom: 110px;
+        -webkit-transition: 0.8s;
+        -o-transition: 0.8s;
+        transition: 0.8s;
+        opacity: 0;
+        visibility: hidden;
+
+        /* balloon */
+        display: inline-block;
+        padding: 6px 2px;
+        color: #000;
+        background: #fff;
+        border-radius: 15px;
+
+        .msg {
+          -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+          font-family: "Times New Roman" , "游明朝" , "Yu Mincho" , "游明朝体" , "YuMincho" , "ヒラギノ明朝 Pro W3" , "Hiragino Mincho Pro" , "HiraMinProN-W3" , "HGS明朝E" , "ＭＳ Ｐ明朝" , "MS PMincho" , serif;
+          color: #9c9a9a;
+          font-size: .75rem;
+        }
+      }
+      .balloon:before {
+         /* balloon */
+         content: "";
+         position: absolute;
+         top: 30%;
+         left: 80%;
+         border: 15px solid transparent;
+         border-left: 15px solid #ffffff;
+      }
+  }
+  a:hover {
+    .balloon {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  a:link,
+  a:active,
+  a:hover,
+  a:focus {
+    outline: none!important;
+    -moz-outline-style: none;
+  }
+
+  // a::before {
+  //   font-family: 'Font Awesome 5 Free';
+  //   font-weight: 900;
+  //   // content: '\f102';
+  //   content: '\f0aa';
+  //   font-size: 40px;
+  //   color: #000;
+  //   position: absolute;
+  //   width: 25px;
+  //   height: 25px;
+  //   top: -40px;
+  //   bottom: 0;
+  //   right: 0;
+  //   left: 0;
+  //   margin: auto;
+  //   text-align: center;
+  // }
+  
+}
+

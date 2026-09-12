@@ -1,0 +1,142 @@
+// plugins/_contactform7.scss
+
+/* Contact Form 7 */
+
+/*スマホContact Form 7カスタマイズ*/
+@media(max-width:800px){
+  .inquiry th,.inquiry td {
+    display: block !important;
+    width: 100% !important;
+    border-top: none !important;
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+    p {
+        margin-bottom: 0 !important;
+    }
+  }
+  .inquiry tr:first-child th{
+   border-top: 1px solid #d7d7d7 !important;
+  }
+  /* 必須・任意のサイズ調整 */
+  .inquiry .haveto {
+    font-size: 1rem;
+  }
+}
+.inquiry {
+  width: 100%;
+}
+/*見出し欄*/
+.inquiry th{
+  text-align: left;
+  font-size: .85rem;
+  color: #444;
+  padding-right: 5px;
+  width: 160px;
+  background: #e0e4e5;
+  border: solid 1px #d7d7d7;
+}
+/*通常欄*/
+.inquiry td{
+  font-size: 1rem;
+  border: solid 1px #d7d7d7;
+}
+/*横の行とテーブル全体*/
+.entry-content .inquiry tr,.entry-content table{
+  border: solid 1px #d7d7d7;
+}
+/*必須の調整*/
+.haveto{
+  font-size: 1.2rem;
+  color: red;
+}
+/*ラジオボタンを縦並び指定*/
+.verticallist .wpcf7-list-item{
+ display:block;
+}
+/*送信ボタンのデザイン変更*/
+#formbtn{
+  display: block;
+  padding: 1em 0;
+  margin-top: 30px;
+  width: 100%;
+  background: #ffaa56;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+}
+/*送信ボタンマウスホバー時*/
+#formbtn:hover{
+  background: #fff;
+  color: #ffaa56;
+  border: 4px solid #ffaa56; /*枠線*/
+}
+.wpcf7-response-output {
+  color: #dc3232;
+  font-size: 1.1rem;
+}
+.wpcf7 input[type="text"],
+.wpcf7 input[type="tel"],
+.wpcf7 input[type="email"],
+.wpcf7 select,
+.wpcf7 textarea {
+  width: 100%;
+  padding: 10px 15px; /*ボックスを大きくする*/
+  font-size: .85rem;
+  border-radius: 3px; /*ボックス角の丸み*/
+  border: 2px solid #ddd; /*枠線*/
+  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+}
+.wpcf7 select {
+  max-width: 250px;
+}
+.wpcf7 input:focus,
+.wpcf7 select:focus,
+.wpcf7 textarea:focus {
+  border: 2px solid #ff9900;
+  z-index: 10;
+  outline: 0;
+}
+.wpcf7 .spam1 {
+    width: 1.1rem;
+	height: 1.1rem;
+	-moz-transform: scale(1.4);
+	-webkit-transform: scale(1.4);
+	transform: scale(1.4);
+}
+.wpcf7 table {
+  border: 6px solid #e0e4e5;
+}
+
+.wpcf7 .consent {
+    font-size: .85rem;
+}
+
+
+/* .p-policy */
+.p-policy {
+    border: solid 1px #333;
+    background: #f2f2f2;
+    padding: 2rem
+}
+
+#p-policy-title {
+    margin: 0 0 1rem;
+    text-align: center;
+    background: #a29f9f;
+    color: #fff;
+    padding: .3rem
+}
+
+.p-policy p {
+    margin-bottom: .8rem
+}
+
+.p-policy-urpose {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+

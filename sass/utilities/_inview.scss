@@ -1,0 +1,41 @@
+/* フェードイン(初期値) */
+.js-fadeUp-child,
+.js-fadeUp {
+  opacity: 0;
+  // transform: translateY(80px); /* 30pxの位置から */
+  transform: translateY(60px); /* 30pxの位置から */
+  // transition: opacity .8s, transform .6s; /* 透過率と縦方向の移動を　0.8秒 */
+  transition: opacity .6s, transform .5s; /* 透過率と縦方向の移動を　0.8秒 */
+}
+.js-fadeR {
+  opacity: 0;
+  transform: translateX(80px); /* 30pxの位置から */
+  transition: opacity .8s, transform .6s; /* 透過率と縦方向の移動を　0.8秒 */
+}
+.js-fadeL {
+  opacity: 0;
+  transform: translateX(-80px); /* 30pxの位置から */
+  transition: opacity .8s, transform .64s; /* 透過率と縦方向の移動を　0.8秒 */
+}
+
+/* フェードイン(スクロールした後) */
+.js-fadeUp-child.is-inview,
+.js-fadeUp.is-inview {
+  opacity: 1;
+  transform: translateY(0); /* Y軸を0へ */
+  // transition-delay: .5s; /* 遅延 */
+  transition-delay: .1s; /* 遅延 */
+}
+.js-fadeUp-child.is-inview-delay {
+  opacity: 1;
+  transform: translateY(0); /* Y軸を0へ */
+  // transition-delay: 1s; /* 遅延 */
+  transition-delay: .6s; /* 遅延 */
+}
+.js-fadeR.is-inview,
+.js-fadeL.is-inview {
+  opacity: 1;
+  transform: translateX(0); /* Y軸を0へ */
+  // transition-delay: .5s; /* 遅延 */
+  transition-delay: .1s; /* 遅延 */
+}
