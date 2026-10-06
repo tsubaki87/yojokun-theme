@@ -1,18 +1,16 @@
 <div class="position_wide section01 wave00-ysn" id="greeting">
-	<div class="position_center">
+	<!-- <div class="position_center">
 		<div class="title word-bk">
-			<!-- <h2>養生訓の里ネットワーク<wbr>準備委員会</h2> -->
-			<!-- <h2>ご挨拶<wbr>（準備委員会）</h2> -->
 			<h2>ご挨拶</h2><h3>（運営委員会）</h3>
 		</div>
-	</div>
+	</div> -->
 	<div class="position_center">
 		<!-- <div class="position_center home-ysn js-fadeUp-wrap"> -->
 		<div class="wrap_grid_auto-fill grid_col_3 position_center home-ysn js-fadeUp-wrap">
-			<?php get_template_part('template-parts/home/cat-list-at-home-greeting-top'); ?>
+			<?php # get_template_part('template-parts/home/cat-list-at-home-greeting-top'); ?>
 		</div><!-- .wrap_grid -->
 		<div class="wrap_grid_auto-fill grid_col_3 position_center home-ysn js-fadeUp-wrap">
-			<?php get_template_part('template-parts/home/cat-list-at-home-greeting'); ?>
+			<?php # get_template_part('template-parts/home/cat-list-at-home-greeting'); ?>
 		</div><!-- .wrap_grid -->
 
 		<?php
