@@ -2149,12 +2149,17 @@ body.single #page .site-main .wrap_grid article.category-board .get_articles_in_
   body.single #page .site-main .wrap_grid article.category-board .entry-content > * {
     grid-column: 1/-1;
   }
-  body.single #page .site-main .wrap_grid article.category-board .entry-content > figure.wp-block-image:first-child {
+  body.single #page .site-main .wrap_grid article.category-board .entry-content > .wp-block-image:first-child {
     grid-column: 1;
     grid-row: 1;
     margin: 0;
   }
-  body.single #page .site-main .wrap_grid article.category-board .entry-content > figure.wp-block-image:first-child img {
+  body.single #page .site-main .wrap_grid article.category-board .entry-content > .wp-block-image:first-child figure {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+  body.single #page .site-main .wrap_grid article.category-board .entry-content > .wp-block-image:first-child img {
     width: 100% !important;
     height: auto;
   }

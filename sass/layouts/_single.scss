@@ -231,10 +231,16 @@ body.single {
                             > * {
                                 grid-column: 1 / -1;
                             }
-                            > figure.wp-block-image:first-child {
+                            // 表示では <div class="wp-block-image"><figure class="aligncenter"> になる
+                            > .wp-block-image:first-child {
                                 grid-column: 1;
                                 grid-row: 1;
                                 margin: 0;
+                                figure {
+                                    display: block; // WordPress の .aligncenter（display: table）を打ち消す
+                                    width: 100%;
+                                    margin: 0;
+                                }
                                 img {
                                     width: 100% !important; // 本文の style="width:252px" より優先
                                     height: auto;
