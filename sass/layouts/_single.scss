@@ -187,6 +187,9 @@ body.single {
                             font-weight: bold;
                             color: #fff;
                             letter-spacing: .05em;
+                            br {
+                                display: none; // スマホだけで改行する
+                            }
                         }
                         .board-person {
                             display: none; // スマホだけで出す
@@ -221,7 +224,7 @@ body.single {
                         }
                     }
 
-                    // スマホ: 左に写真（40%）、右に団体名と肩書き・氏名（上下中央）
+                    // スマホ: 1 行目に見出し（h2）、2 行目の左に写真（40%）・右に団体名と肩書き・氏名（上下中央）、その下に本文
                     @include media(sm) {
                         display: grid;
                         grid-template-columns: 40% 1fr;
@@ -231,10 +234,13 @@ body.single {
                             > * {
                                 grid-column: 1 / -1;
                             }
+                            > h2.wp-block-heading:first-of-type {
+                                grid-row: 1;
+                            }
                             // 表示では <div class="wp-block-image"><figure class="aligncenter"> になる
                             > .wp-block-image:first-child {
                                 grid-column: 1;
-                                grid-row: 1;
+                                grid-row: 2;
                                 margin: 0;
                                 figure {
                                     display: block; // WordPress の .aligncenter（display: table）を打ち消す
@@ -252,7 +258,7 @@ body.single {
                         }
                         .entry-header {
                             grid-column: 2;
-                            grid-row: 1;
+                            grid-row: 2;
                             align-self: center;
                             margin: 0;
                             padding: 0;
@@ -260,10 +266,17 @@ body.single {
                             text-align: left;
                             .board-org {
                                 color: $color__board;
+                                line-height: 1.6;
+                                br {
+                                    display: inline;
+                                }
+                                .space {
+                                    display: none;
+                                }
                             }
                             .board-person {
                                 display: block;
-                                margin: 10px 0 0;
+                                margin: 14px 0 0;
                                 color: #000;
                                 .board-role {
                                     display: block;

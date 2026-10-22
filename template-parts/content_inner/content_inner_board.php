@@ -15,7 +15,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header class="entry-header">
-		<p class="board-org">（一社）曽田豊二記念　養生訓の里ネットワーク　役員</p>
+		<p class="board-org">（一社）曽田豊二記念<span class="space">　</span><br>養生訓の里ネットワーク<span class="space">　</span><br>役員</p><!-- PC は全角スペース、スマホは改行 -->
 		<?php if ($board_name): ?>
 		<p class="board-person">
 			<?php if ($board_role): ?><span class="board-role"><?php echo esc_html($board_role); ?></span><?php endif; ?>

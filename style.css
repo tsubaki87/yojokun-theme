@@ -2112,6 +2112,9 @@ body.single #page .site-main .wrap_grid article.category-board .entry-header .bo
   color: #fff;
   letter-spacing: 0.05em;
 }
+body.single #page .site-main .wrap_grid article.category-board .entry-header .board-org br {
+  display: none;
+}
 body.single #page .site-main .wrap_grid article.category-board .entry-header .board-person {
   display: none;
 }
@@ -2149,9 +2152,12 @@ body.single #page .site-main .wrap_grid article.category-board .get_articles_in_
   body.single #page .site-main .wrap_grid article.category-board .entry-content > * {
     grid-column: 1/-1;
   }
+  body.single #page .site-main .wrap_grid article.category-board .entry-content > h2.wp-block-heading:first-of-type {
+    grid-row: 1;
+  }
   body.single #page .site-main .wrap_grid article.category-board .entry-content > .wp-block-image:first-child {
     grid-column: 1;
-    grid-row: 1;
+    grid-row: 2;
     margin: 0;
   }
   body.single #page .site-main .wrap_grid article.category-board .entry-content > .wp-block-image:first-child figure {
@@ -2168,7 +2174,7 @@ body.single #page .site-main .wrap_grid article.category-board .get_articles_in_
   }
   body.single #page .site-main .wrap_grid article.category-board .entry-header {
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 2;
     align-self: center;
     margin: 0;
     padding: 0;
@@ -2177,10 +2183,17 @@ body.single #page .site-main .wrap_grid article.category-board .get_articles_in_
   }
   body.single #page .site-main .wrap_grid article.category-board .entry-header .board-org {
     color: #86040e;
+    line-height: 1.6;
+  }
+  body.single #page .site-main .wrap_grid article.category-board .entry-header .board-org br {
+    display: inline;
+  }
+  body.single #page .site-main .wrap_grid article.category-board .entry-header .board-org .space {
+    display: none;
   }
   body.single #page .site-main .wrap_grid article.category-board .entry-header .board-person {
     display: block;
-    margin: 10px 0 0;
+    margin: 14px 0 0;
     color: #000;
   }
   body.single #page .site-main .wrap_grid article.category-board .entry-header .board-person .board-role {
