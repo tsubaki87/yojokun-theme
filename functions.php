@@ -8,8 +8,8 @@
  */
 
 if ( ! defined( '_S_VERSION' ) ) {
-	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	// テーマの版（style.css の Version）を使う。本番に出すときに版を上げると、ブラウザが新しい CSS・JS を読み込む
+	define( '_S_VERSION', wp_get_theme()->get( 'Version' ) );
 }
 
 /**
@@ -144,21 +144,21 @@ function yojo_scripts() {
 
 	wp_enqueue_script( 'yojo-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
-	wp_enqueue_style( 'yojo-slick-style', get_template_directory_uri() . '/stylesheets/slick.css' );
+	wp_enqueue_style( 'yojo-slick-style', get_template_directory_uri() . '/stylesheets/slick.css', array(), _S_VERSION );
     // wp_enqueue_style( 'yojo-scss-style', get_template_directory_uri() . '/stylesheets/style.css' ); // npm run watchではここにはコンパイルしない
 	wp_enqueue_style( 'yojo-fontawesom-style', 'https://use.fontawesome.com/releases/v5.15.4/css/all.css' );
 	wp_enqueue_script( 'yojo-fontawesome', 'https://use.fontawesome.com/releases/v5.15.4/js/all.js' );
 	wp_enqueue_style( 'sample00-fontawesom-style', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 	wp_enqueue_style( 'css-font-awesome-6-style', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' );
 	wp_enqueue_script( 'yojo-jquery-js', 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js' );
-  wp_enqueue_style( 'yojo-slick-theme-style', get_template_directory_uri() . '/stylesheets/slick-theme.css' );
-  wp_enqueue_style( 'yojo-slick-dev-style', get_template_directory_uri() . '/stylesheets/slick-dev.css' );
-	wp_enqueue_script( 'yojo-slick', get_template_directory_uri() . '/js/slick.min.js' );
-  wp_enqueue_script( 'yojo-slick-dev', get_template_directory_uri() . '/js/slick-dev.js' );
-	wp_enqueue_script( 'yojo-inview', get_template_directory_uri() . '/js/jquery.inview.min.js' );
+  wp_enqueue_style( 'yojo-slick-theme-style', get_template_directory_uri() . '/stylesheets/slick-theme.css', array(), _S_VERSION );
+  wp_enqueue_style( 'yojo-slick-dev-style', get_template_directory_uri() . '/stylesheets/slick-dev.css', array(), _S_VERSION );
+	wp_enqueue_script( 'yojo-slick', get_template_directory_uri() . '/js/slick.min.js', array(), _S_VERSION );
+  wp_enqueue_script( 'yojo-slick-dev', get_template_directory_uri() . '/js/slick-dev.js', array(), _S_VERSION );
+	wp_enqueue_script( 'yojo-inview', get_template_directory_uri() . '/js/jquery.inview.min.js', array(), _S_VERSION );
 	wp_enqueue_script( 'cdnjs-cloudflare-gsap-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js' );
 	wp_enqueue_script( 'cdnjs-cloudflare-ScrollTrigger-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js' );
-	wp_enqueue_script( 'yojo-customizer', get_template_directory_uri() . '/js/yojo.js' );
+	wp_enqueue_script( 'yojo-customizer', get_template_directory_uri() . '/js/yojo.js', array(), _S_VERSION );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

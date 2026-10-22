@@ -11,6 +11,11 @@
 		get_template_part('template-parts/content_inner/content_inner_greeting');
 	// category-greeting ==================== end
 
+	// category-board（役員）====================
+	elseif (preg_grep('/category-board/', $classes)):
+		get_template_part('template-parts/content_inner/content_inner_board');
+	// category-board（役員）==================== end
+
 	// $search_ ====================
 	elseif (count(array_intersect($search__which, $classes)) != 0):
 		echo 'search__which';

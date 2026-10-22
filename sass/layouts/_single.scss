@@ -172,6 +172,62 @@ body.single {
                 article.category-story {
                     background-color: unset;
                 }
+
+                // 役員（board）==================== 紺の帯で役職を目立たせる
+                article.category-board {
+                    $color__board: #1f3354; // 紺
+                    $color__board-light: #eef1f6;
+                    border-top: solid 6px $color__board;
+                    .entry-header {
+                        .board-org {
+                            margin: 0 0 30px;
+                            font-size: .85rem;
+                            color: #666;
+                            letter-spacing: .05em;
+                        }
+                    }
+                    .entry-content {
+                        h3.wp-block-heading {
+                            margin: 30px -30px;
+                            padding: 12px 20px;
+                            background-color: $color__board;
+                            color: #fff;
+                            font-size: 1.2rem;
+                            letter-spacing: .1em;
+                        }
+                        h2.wp-block-heading {
+                            color: $color__board;
+                            font-size: 1.3rem;
+                        }
+                        hr.wp-block-separator {
+                            border-top: solid 1px $color__board;
+                        }
+                    }
+                    .get_articles_in_category__wrap.board {
+                        border-top: solid 1px $color__board;
+                        background: $color__board-light;
+                        .get_articles_in_category__title {
+                            color: $color__board;
+                        }
+                        ul.get_articles_in_category {
+                            li {
+                                text-align: center;
+                                font-size: 1.1rem;
+                                background-color: $color__board;
+                            }
+                            li:has(a.now_page) {
+                                background-color: #818181;
+                            }
+                            li:hover:has(:not(a.now_page)) {
+                                background-color: #34507f;
+                                a {
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+                // 役員（board）==================== end
             }
         }
 

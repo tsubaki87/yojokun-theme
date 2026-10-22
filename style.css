@@ -4,8 +4,8 @@ Theme Name: Yojo
 Theme URI: http://underscores.me/
 Author: Hanada Design
 Author URI: https://hanada87.com/
-Description: 261008 change-gcp-vm, 260917 dev_top_board-member, 260522 dev-GeneralIncorporatedAssociation, 251213 dev-hara, 250804 dev-news-cat, 250801 dev-news-cat_at-home-top-view, 250731 dev03-popupwindow-top, 250211 dev-news, 241229 dev-sns, 241216 dev-access-counter-&-table-css, 241210 dev-tip-img-bg, 241204 dev-menu-for-org, 241121 dev-logo, 241121 Start!
-Version: 2.0.15
+Description: 261022 dev_board-member-page, 261008 change-gcp-vm, 260917 dev_top_board-member, 260522 dev-GeneralIncorporatedAssociation, 251213 dev-hara, 250804 dev-news-cat, 250801 dev-news-cat_at-home-top-view, 250731 dev03-popupwindow-top, 250211 dev-news, 241229 dev-sns, 241216 dev-access-counter-&-table-css, 241210 dev-tip-img-bg, 241204 dev-menu-for-org, 241121 dev-logo, 241121 Start!
+Version: 2.0.16
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -2095,6 +2095,51 @@ body.single #page .site-main .wrap_grid article .entry-footer .cat-links {
 }
 body.single #page .site-main .wrap_grid article.category-story {
   background-color: unset;
+}
+body.single #page .site-main .wrap_grid article.category-board {
+  border-top: solid 6px #1f3354;
+}
+body.single #page .site-main .wrap_grid article.category-board .entry-header .board-org {
+  margin: 0 0 30px;
+  font-size: 0.85rem;
+  color: #666;
+  letter-spacing: 0.05em;
+}
+body.single #page .site-main .wrap_grid article.category-board .entry-content h3.wp-block-heading {
+  margin: 30px -30px;
+  padding: 12px 20px;
+  background-color: #1f3354;
+  color: #fff;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+}
+body.single #page .site-main .wrap_grid article.category-board .entry-content h2.wp-block-heading {
+  color: #1f3354;
+  font-size: 1.3rem;
+}
+body.single #page .site-main .wrap_grid article.category-board .entry-content hr.wp-block-separator {
+  border-top: solid 1px #1f3354;
+}
+body.single #page .site-main .wrap_grid article.category-board .get_articles_in_category__wrap.board {
+  border-top: solid 1px #1f3354;
+  background: #eef1f6;
+}
+body.single #page .site-main .wrap_grid article.category-board .get_articles_in_category__wrap.board .get_articles_in_category__title {
+  color: #1f3354;
+}
+body.single #page .site-main .wrap_grid article.category-board .get_articles_in_category__wrap.board ul.get_articles_in_category li {
+  text-align: center;
+  font-size: 1.1rem;
+  background-color: #1f3354;
+}
+body.single #page .site-main .wrap_grid article.category-board .get_articles_in_category__wrap.board ul.get_articles_in_category li:has(a.now_page) {
+  background-color: #818181;
+}
+body.single #page .site-main .wrap_grid article.category-board .get_articles_in_category__wrap.board ul.get_articles_in_category li:hover:has(:not(a.now_page)) {
+  background-color: #34507f;
+}
+body.single #page .site-main .wrap_grid article.category-board .get_articles_in_category__wrap.board ul.get_articles_in_category li:hover:has(:not(a.now_page)) a {
+  color: #fff;
 }
 body.single #page .site-main:not(:has(article.category-story)) {
   position: relative;
