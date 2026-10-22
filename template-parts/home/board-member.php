@@ -18,7 +18,7 @@
 			$page = get_post( $page_id );
 		?>
 		<div id="founding-supporter"></div>
-		<div class="supporter_wrap">
+		<div class="supporter_wrap board-member">
 			<div class="title"><h3>（一社）曽田豊二記念　養生訓の里ネットワーク　役員</h3></div>
 
 			<?php

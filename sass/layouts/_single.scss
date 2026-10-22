@@ -173,16 +173,19 @@ body.single {
                     background-color: unset;
                 }
 
-                // 役員（board）==================== 紺の帯で役職を目立たせる
+                // 役員（board）==================== エンジ色の帯で役職を目立たせる
                 article.category-board {
-                    $color__board: #1f3354; // 紺
-                    $color__board-light: #eef1f6;
-                    border-top: solid 6px $color__board;
+                    $color__board: #86040e; // エンジ色（トップと同じ）
                     .entry-header {
+                        margin: -30px -30px 30px;
+                        padding: 14px 20px;
+                        background-color: $color__board;
                         .board-org {
-                            margin: 0 0 30px;
+                            margin: 0;
+                            font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif;
                             font-size: .85rem;
-                            color: #666;
+                            font-weight: bold;
+                            color: #fff;
                             letter-spacing: .05em;
                         }
                     }
@@ -204,8 +207,6 @@ body.single {
                         }
                     }
                     .get_articles_in_category__wrap.board {
-                        border-top: solid 1px $color__board;
-                        background: $color__board-light;
                         .get_articles_in_category__title {
                             color: $color__board;
                         }
@@ -213,16 +214,6 @@ body.single {
                             li {
                                 text-align: center;
                                 font-size: 1.1rem;
-                                background-color: $color__board;
-                            }
-                            li:has(a.now_page) {
-                                background-color: #818181;
-                            }
-                            li:hover:has(:not(a.now_page)) {
-                                background-color: #34507f;
-                                a {
-                                    color: #fff;
-                                }
                             }
                         }
                     }
