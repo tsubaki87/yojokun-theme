@@ -178,7 +178,7 @@ body.single {
                     $color__board: #86040e; // エンジ色（トップと同じ）
                     .entry-header {
                         margin: -30px -30px 30px;
-                        padding: 14px 20px;
+                        padding: 4px 20px;
                         background-color: $color__board;
                         .board-org {
                             margin: 0;
@@ -187,6 +187,9 @@ body.single {
                             font-weight: bold;
                             color: #fff;
                             letter-spacing: .05em;
+                        }
+                        .board-person {
+                            display: none; // スマホだけで出す
                         }
                     }
                     .entry-content {
@@ -215,6 +218,60 @@ body.single {
                                 text-align: center;
                                 font-size: 1.1rem;
                             }
+                        }
+                    }
+
+                    // スマホ: 左に写真（40%）、右に団体名と肩書き・氏名（上下中央）
+                    @include media(sm) {
+                        display: grid;
+                        grid-template-columns: 40% 1fr;
+                        column-gap: 16px;
+                        .entry-content {
+                            display: contents; // 本文の写真を、見出しと同じ格子に並べる
+                            > * {
+                                grid-column: 1 / -1;
+                            }
+                            > figure.wp-block-image:first-child {
+                                grid-column: 1;
+                                grid-row: 1;
+                                margin: 0;
+                                img {
+                                    width: 100% !important; // 本文の style="width:252px" より優先
+                                    height: auto;
+                                }
+                            }
+                            h3.wp-block-heading {
+                                display: none; // 写真の右に出すので、帯は出さない
+                            }
+                        }
+                        .entry-header {
+                            grid-column: 2;
+                            grid-row: 1;
+                            align-self: center;
+                            margin: 0;
+                            padding: 0;
+                            background-color: unset;
+                            text-align: left;
+                            .board-org {
+                                color: $color__board;
+                            }
+                            .board-person {
+                                display: block;
+                                margin: 10px 0 0;
+                                color: #000;
+                                .board-role {
+                                    display: block;
+                                    font-size: .9rem;
+                                }
+                                .board-name {
+                                    display: block;
+                                    font-size: 1.2rem;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                        .get_articles_in_category__wrap.board {
+                            grid-column: 1 / -1;
                         }
                     }
                 }

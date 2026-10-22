@@ -2101,7 +2101,7 @@ body.single #page .site-main .wrap_grid article.category-story {
 }
 body.single #page .site-main .wrap_grid article.category-board .entry-header {
   margin: -30px -30px 30px;
-  padding: 14px 20px;
+  padding: 4px 20px;
   background-color: #86040e;
 }
 body.single #page .site-main .wrap_grid article.category-board .entry-header .board-org {
@@ -2111,6 +2111,9 @@ body.single #page .site-main .wrap_grid article.category-board .entry-header .bo
   font-weight: bold;
   color: #fff;
   letter-spacing: 0.05em;
+}
+body.single #page .site-main .wrap_grid article.category-board .entry-header .board-person {
+  display: none;
 }
 body.single #page .site-main .wrap_grid article.category-board .entry-content h3.wp-block-heading {
   margin: 30px -30px;
@@ -2133,6 +2136,60 @@ body.single #page .site-main .wrap_grid article.category-board .get_articles_in_
 body.single #page .site-main .wrap_grid article.category-board .get_articles_in_category__wrap.board ul.get_articles_in_category li {
   text-align: center;
   font-size: 1.1rem;
+}
+@media screen and (max-width: 576px) {
+  body.single #page .site-main .wrap_grid article.category-board {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    column-gap: 16px;
+  }
+  body.single #page .site-main .wrap_grid article.category-board .entry-content {
+    display: contents;
+  }
+  body.single #page .site-main .wrap_grid article.category-board .entry-content > * {
+    grid-column: 1/-1;
+  }
+  body.single #page .site-main .wrap_grid article.category-board .entry-content > figure.wp-block-image:first-child {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+  }
+  body.single #page .site-main .wrap_grid article.category-board .entry-content > figure.wp-block-image:first-child img {
+    width: 100% !important;
+    height: auto;
+  }
+  body.single #page .site-main .wrap_grid article.category-board .entry-content h3.wp-block-heading {
+    display: none;
+  }
+  body.single #page .site-main .wrap_grid article.category-board .entry-header {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    margin: 0;
+    padding: 0;
+    background-color: unset;
+    text-align: left;
+  }
+  body.single #page .site-main .wrap_grid article.category-board .entry-header .board-org {
+    color: #86040e;
+  }
+  body.single #page .site-main .wrap_grid article.category-board .entry-header .board-person {
+    display: block;
+    margin: 10px 0 0;
+    color: #000;
+  }
+  body.single #page .site-main .wrap_grid article.category-board .entry-header .board-person .board-role {
+    display: block;
+    font-size: 0.9rem;
+  }
+  body.single #page .site-main .wrap_grid article.category-board .entry-header .board-person .board-name {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  body.single #page .site-main .wrap_grid article.category-board .get_articles_in_category__wrap.board {
+    grid-column: 1/-1;
+  }
 }
 body.single #page .site-main:not(:has(article.category-story)) {
   position: relative;
