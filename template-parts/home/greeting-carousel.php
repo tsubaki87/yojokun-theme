@@ -11,7 +11,10 @@ $greeting_posts = get_posts($args);
 if (!$greeting_posts) return;
 ?>
 <div class="position_wide home-greeting-carousel">
-	<div class="title"><h3>役員からのご挨拶</h3></div>
+	<div class="title">
+		<h3>役員からのご挨拶</h3>
+		<button type="button" class="greeting-carousel__next" aria-label="次の方へ送る"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+	</div>
 	<div class="greeting-carousel">
 		<ul class="greeting-carousel__track">
 			<?php foreach ($greeting_posts as $post): setup_postdata($post);

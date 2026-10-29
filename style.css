@@ -1520,11 +1520,35 @@ body.home .home-greeting-carousel {
   padding: 60px 0 40px;
 }
 body.home .home-greeting-carousel .title {
-  margin-bottom: 24px;
+  position: relative;
+  max-width: 1248px;
+  margin: 0 auto 24px;
   padding: 0 20px;
 }
 body.home .home-greeting-carousel .title h3 {
   margin: 0;
+  line-height: 44px;
+}
+body.home .home-greeting-carousel .greeting-carousel__next {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 2px solid #86040e;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #86040e;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+body.home .home-greeting-carousel .greeting-carousel__next:hover, body.home .home-greeting-carousel .greeting-carousel__next:focus-visible {
+  background-color: #86040e;
+  color: #fff;
 }
 body.home .home-greeting-carousel .greeting-carousel {
   max-width: 1248px;

@@ -811,21 +811,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 役員からのご挨拶（トップ）: カードを 1 枚ずつ、止まっては右から左へ送る ==============================
 // 見えたら、先頭（代表理事）のカードを上の役員の表の左端にそろえて始める。マウスを乗せている間・指で触れている間は止まる
+// 右上の矢印を押すと、待たずに 1 名ずつ早送りする
 document.addEventListener("DOMContentLoaded", function () {
   const wrap = document.querySelector('.greeting-carousel');
   if (!wrap) return;
   const track = wrap.querySelector('.greeting-carousel__track');
   const cards = Array.from(track.children);
   if (!cards.length) return;
+  const nextButton = document.querySelector('.greeting-carousel__next');
 
-  // 動きを減らす設定の方には送らず、指やスクロールで横に動かせるだけにする
+  // 動きを減らす設定の方には送らず、指やスクロールで横に動かせるだけにする（矢印は 1 名分スクロール）
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     wrap.classList.add('is-static');
+    if (nextButton) {
+      nextButton.addEventListener('click', () => {
+        wrap.scrollBy({ left: cards[0].offsetWidth + parseFloat(getComputedStyle(cards[0]).marginRight) });
+      });
+    }
     return;
   }
 
   const waitTime = 2500; // 1 枚ごとに止まっている時間（ミリ秒）
   const moveTime = 800;  // 1 枚分動く時間（ミリ秒）
+  const skipTime = 400;  // 矢印で早送りするときの、1 枚分動く時間（ミリ秒）
+  let skips = 0;     // 矢印が押されて、まだ送っていない回数
+  let currentMoveTime = moveTime;
   let step = 0;      // カード 1 枚分の幅（間を含む）
   let setWidth = 0;  // カード 1 そろい分の幅
   let x = 0;
@@ -869,7 +879,9 @@ document.addEventListener("DOMContentLoaded", function () {
     lastTime = time;
     if (state === 'wait') {
       if (!paused) elapsed += dt;
-      if (elapsed >= waitTime) {
+      if (skips > 0 || elapsed >= waitTime) {
+        currentMoveTime = skips > 0 ? skipTime : moveTime;
+        if (skips > 0) skips--;
         state = 'move';
         elapsed = 0;
         moveFrom = x;
@@ -877,7 +889,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       // 動いている途中でマウスを乗せても、その 1 枚分は動き切る
       elapsed += dt;
-      const t = Math.min(elapsed / moveTime, 1);
+      const t = Math.min(elapsed / currentMoveTime, 1);
       setX(moveFrom - step * ease(t));
       if (t === 1) {
         if (x <= -setWidth) setX(x + setWidth); // 1 そろい分送ったら、同じ見た目の位置に戻す
@@ -897,6 +909,12 @@ document.addEventListener("DOMContentLoaded", function () {
     setX(startOffset()); // 画像の読み込みなどで位置がずれていても、始める時にそろえ直す
     requestAnimationFrame(frame);
   }, { threshold: 0.3 }).observe(wrap);
+
+  if (nextButton) {
+    nextButton.addEventListener('click', () => {
+      if (skips < 3) skips++; // 続けて押しても、送り過ぎないように 3 回分まで
+    });
+  }
 
   wrap.addEventListener('mouseenter', () => { paused = true; });
   wrap.addEventListener('mouseleave', () => { paused = false; });
