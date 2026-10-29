@@ -942,6 +942,8 @@ body.home {
             }
         }
         .greeting-carousel {
+            max-width: 1248px; // 大きな画面で同じ方が 2 枚見えないように（ヘッダーの幅と同じ）
+            margin: 0 auto;
             overflow: hidden;
             &.is-static {
                 // 動きを減らす設定の方は、横にスクロールして見る
@@ -981,8 +983,9 @@ body.home {
             }
         }
         .greeting-card__photo {
+            width: 88%; // 写真はカードの幅より少し小さく（スマホはカードいっぱい）
             aspect-ratio: 4 / 5;
-            margin-bottom: 12px;
+            margin: 0 auto 12px;
             overflow: hidden;
             background-color: #e6e6e6;
             img {
@@ -1012,6 +1015,9 @@ body.home {
             .greeting-card {
                 flex-basis: 180px;
                 margin-right: 16px;
+            }
+            .greeting-card__photo {
+                width: 100%;
             }
         }
     }

@@ -1527,6 +1527,8 @@ body.home .home-greeting-carousel .title h3 {
   margin: 0;
 }
 body.home .home-greeting-carousel .greeting-carousel {
+  max-width: 1248px;
+  margin: 0 auto;
   overflow: hidden;
 }
 body.home .home-greeting-carousel .greeting-carousel.is-static {
@@ -1564,8 +1566,9 @@ body.home .home-greeting-carousel .greeting-card a:hover .greeting-card__photo i
   transform: scale(1.08);
 }
 body.home .home-greeting-carousel .greeting-card__photo {
+  width: 88%;
   aspect-ratio: 4/5;
-  margin-bottom: 12px;
+  margin: 0 auto 12px;
   overflow: hidden;
   background-color: #e6e6e6;
 }
@@ -1595,6 +1598,9 @@ body.home .home-greeting-carousel .greeting-card__name {
   body.home .home-greeting-carousel .greeting-card {
     flex-basis: 180px;
     margin-right: 16px;
+  }
+  body.home .home-greeting-carousel .greeting-card__photo {
+    width: 100%;
   }
 }
 
