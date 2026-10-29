@@ -931,7 +931,7 @@ body.home {
         }
     }
 
-    // 役員からのご挨拶 ==================== カードを右から左へ流し続ける（動きは js/yojo.js）
+    // 役員からのご挨拶 ==================== カードを 1 枚ずつ、止まっては右から左へ送る（動きは js/yojo.js）
     .home-greeting-carousel {
         padding: 60px 0 40px;
         .title {
@@ -969,10 +969,14 @@ body.home {
                 color: #333;
                 text-align: center;
                 text-decoration: none;
-                transition: box-shadow .2s;
+                transition: background-color .3s, box-shadow .3s;
                 &:hover,
                 &:focus-visible {
+                    background-color: #f3e3e4; // 上の役員の表と同じ、うすいエンジ色
                     box-shadow: 0 4px 16px rgba(0, 0, 0, .18);
+                    .greeting-card__photo img {
+                        transform: scale(1.08); // 顔写真をゆっくり少し大きく
+                    }
                 }
             }
         }
@@ -986,6 +990,7 @@ body.home {
                 height: 100%;
                 object-fit: cover;
                 object-position: center top;
+                transition: transform 1.2s ease;
             }
         }
         .greeting-card__org {

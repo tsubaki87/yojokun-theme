@@ -1554,10 +1554,14 @@ body.home .home-greeting-carousel .greeting-card a {
   color: #333;
   text-align: center;
   text-decoration: none;
-  transition: box-shadow 0.2s;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 body.home .home-greeting-carousel .greeting-card a:hover, body.home .home-greeting-carousel .greeting-card a:focus-visible {
+  background-color: #f3e3e4;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+body.home .home-greeting-carousel .greeting-card a:hover .greeting-card__photo img, body.home .home-greeting-carousel .greeting-card a:focus-visible .greeting-card__photo img {
+  transform: scale(1.08);
 }
 body.home .home-greeting-carousel .greeting-card__photo {
   aspect-ratio: 4/5;
@@ -1570,6 +1574,7 @@ body.home .home-greeting-carousel .greeting-card__photo img {
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  transition: transform 1.2s ease;
 }
 body.home .home-greeting-carousel .greeting-card__org {
   margin: 0;

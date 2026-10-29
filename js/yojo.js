@@ -809,8 +809,8 @@ document.addEventListener("DOMContentLoaded", function () {
 // 役員の表（トップ）: 行のどこを押しても、その行の名前のリンク先へ移る ============================== end
 
 
-// 役員からのご挨拶（トップ）: カードを右から左へ流し続ける ==============================
-// 見えたら、先頭（代表理事）のカードが右端から入ってくる。マウスを乗せている間・指で触れている間は止まる
+// 役員からのご挨拶（トップ）: カードを 1 枚ずつ、止まっては右から左へ送る ==============================
+// 見えたら、先頭（代表理事）のカードを上の役員の表の左端にそろえて始める。マウスを乗せている間・指で触れている間は止まる
 document.addEventListener("DOMContentLoaded", function () {
   const wrap = document.querySelector('.greeting-carousel');
   if (!wrap) return;
@@ -818,23 +818,33 @@ document.addEventListener("DOMContentLoaded", function () {
   const cards = Array.from(track.children);
   if (!cards.length) return;
 
-  // 動きを減らす設定の方には流さず、指やスクロールで横に動かせるだけにする
+  // 動きを減らす設定の方には送らず、指やスクロールで横に動かせるだけにする
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     wrap.classList.add('is-static');
     return;
   }
 
-  const speed = 40; // 1 秒に進む px
-  let setWidth = 0; // カード 1 そろい分の幅
+  const waitTime = 2500; // 1 枚ごとに止まっている時間（ミリ秒）
+  const moveTime = 800;  // 1 枚分動く時間（ミリ秒）
+  let step = 0;      // カード 1 枚分の幅（間を含む）
+  let setWidth = 0;  // カード 1 そろい分の幅
   let x = 0;
+  let moveFrom = 0;
+  let state = 'wait';
+  let elapsed = 0;
   let paused = false;
-  let started = false;
   let lastTime = null;
 
-  // 流れ続けて見えるように、画面の幅を埋めるまでカードの写しを足す（写しは読み上げ・Tab の対象にしない）
+  function setX(value) {
+    x = value;
+    track.style.transform = 'translateX(' + x + 'px)';
+  }
+
+  // とぎれずに続いて見えるように、画面の幅を埋めるまでカードの写しを足す（写しは読み上げ・Tab の対象にしない）
   function fillTrack() {
-    setWidth = cards.reduce((sum, card) => sum + card.offsetWidth + parseFloat(getComputedStyle(card).marginRight), 0);
-    while (track.scrollWidth < setWidth + wrap.clientWidth) {
+    step = cards[0].offsetWidth + parseFloat(getComputedStyle(cards[0]).marginRight);
+    setWidth = step * cards.length;
+    while (track.scrollWidth < setWidth + wrap.clientWidth + step) {
       cards.forEach((card) => {
         const clone = card.cloneNode(true);
         clone.setAttribute('aria-hidden', 'true');
@@ -844,26 +854,48 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function step(time) {
-    if (lastTime !== null && !paused) {
-      const dt = Math.min(time - lastTime, 100) / 1000; // タブを離れて戻ったときに大きく跳ばないように
-      x -= speed * dt;
-      if (x <= -setWidth) x += setWidth;
-      track.style.transform = 'translateX(' + x + 'px)';
-    }
+  // 上の役員の表の左端（なければ見出しの左端）の位置
+  function startOffset() {
+    const base = document.querySelector('.supporter_wrap.board-member .wp-block-table table')
+      || document.querySelector('.home-greeting-carousel .title h3');
+    if (!base) return 0;
+    return Math.max(0, base.getBoundingClientRect().left - wrap.getBoundingClientRect().left);
+  }
+
+  const ease = (t) => (t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2); // ゆっくり動き出して、ゆっくり止まる
+
+  function frame(time) {
+    const dt = lastTime === null ? 0 : Math.min(time - lastTime, 100); // タブを離れて戻ったときに大きく跳ばないように
     lastTime = time;
-    requestAnimationFrame(step);
+    if (state === 'wait') {
+      if (!paused) elapsed += dt;
+      if (elapsed >= waitTime) {
+        state = 'move';
+        elapsed = 0;
+        moveFrom = x;
+      }
+    } else {
+      // 動いている途中でマウスを乗せても、その 1 枚分は動き切る
+      elapsed += dt;
+      const t = Math.min(elapsed / moveTime, 1);
+      setX(moveFrom - step * ease(t));
+      if (t === 1) {
+        if (x <= -setWidth) setX(x + setWidth); // 1 そろい分送ったら、同じ見た目の位置に戻す
+        state = 'wait';
+        elapsed = 0;
+      }
+    }
+    requestAnimationFrame(frame);
   }
 
   fillTrack();
-  x = wrap.clientWidth; // 先頭のカードを右端の外に置いておく
-  track.style.transform = 'translateX(' + x + 'px)';
+  setX(startOffset());
 
   new IntersectionObserver((entries, observer) => {
-    if (!entries[0].isIntersecting || started) return;
-    started = true;
+    if (!entries[0].isIntersecting) return;
     observer.disconnect();
-    requestAnimationFrame(step);
+    setX(startOffset()); // 画像の読み込みなどで位置がずれていても、始める時にそろえ直す
+    requestAnimationFrame(frame);
   }, { threshold: 0.3 }).observe(wrap);
 
   wrap.addEventListener('mouseenter', () => { paused = true; });
@@ -874,4 +906,4 @@ document.addEventListener("DOMContentLoaded", function () {
   wrap.addEventListener('touchend', () => { paused = false; });
   window.addEventListener('resize', fillTrack);
 }, false);
-// 役員からのご挨拶（トップ）: カードを右から左へ流し続ける ============================== end
+// 役員からのご挨拶（トップ）: カードを 1 枚ずつ、止まっては右から左へ送る ============================== end
