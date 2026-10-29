@@ -1252,6 +1252,11 @@ body.home .wave00-ysn div.position_center .supporter_wrap .wp-block-table table 
 body.home .wave00-ysn div.position_center .supporter_wrap .wp-block-table table tbody tr td:nth-of-type(2) {
   background-color: #f4f2e0;
 }
+body.home .wave00-ysn div.position_center .supporter_wrap.board-member .board-member-note {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  text-align: center;
+}
 body.home .wave00-ysn div.position_center .supporter_wrap.board-member .wp-block-table table tbody tr td {
   padding: 12px 16px;
 }
@@ -1510,6 +1515,82 @@ body.home .section-last div .tag-list-wrap {
 body.home .section-last div .tag-list-wrap .tag-title {
   text-align: center;
   margin-bottom: 10px;
+}
+body.home .home-greeting-carousel {
+  padding: 60px 0 40px;
+}
+body.home .home-greeting-carousel .title {
+  margin-bottom: 24px;
+  padding: 0 20px;
+}
+body.home .home-greeting-carousel .title h3 {
+  margin: 0;
+}
+body.home .home-greeting-carousel .greeting-carousel {
+  overflow: hidden;
+}
+body.home .home-greeting-carousel .greeting-carousel.is-static {
+  overflow-x: auto;
+}
+body.home .home-greeting-carousel .greeting-carousel__track {
+  display: flex;
+  width: max-content;
+  margin: 0;
+  padding: 8px 0 16px;
+  list-style: none;
+  will-change: transform;
+}
+body.home .home-greeting-carousel .greeting-card {
+  flex: 0 0 220px;
+  margin: 0 24px 0 0;
+}
+body.home .home-greeting-carousel .greeting-card a {
+  display: block;
+  height: 100%;
+  padding: 16px 16px 20px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s;
+}
+body.home .home-greeting-carousel .greeting-card a:hover, body.home .home-greeting-carousel .greeting-card a:focus-visible {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+body.home .home-greeting-carousel .greeting-card__photo {
+  aspect-ratio: 4/5;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background-color: #e6e6e6;
+}
+body.home .home-greeting-carousel .greeting-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+body.home .home-greeting-carousel .greeting-card__org {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #666;
+}
+body.home .home-greeting-carousel .greeting-card__role {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+}
+body.home .home-greeting-carousel .greeting-card__name {
+  margin: 2px 0 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+@media screen and (max-width: 576px) {
+  body.home .home-greeting-carousel .greeting-card {
+    flex-basis: 180px;
+    margin-right: 16px;
+  }
 }
 
 /* top-animation

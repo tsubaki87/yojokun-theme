@@ -20,6 +20,7 @@
 		<div id="founding-supporter"></div>
 		<div class="supporter_wrap board-member">
 			<div class="title"><h3>（一社）曽田豊二記念　養生訓の里ネットワーク　役員</h3></div>
+			<p class="board-member-note">ご挨拶ページのある方は、氏名をクリックすると移動します。</p>
 
 			<?php
 				echo $page -> post_content;  //本文を取得

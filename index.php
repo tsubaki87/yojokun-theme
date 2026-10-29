@@ -24,6 +24,7 @@ get_header();
 
 		<?php get_template_part('template-parts/home/map'); ?>
 		<?php get_template_part('template-parts/home/board-member'); ?>
+		<?php get_template_part('template-parts/home/greeting-carousel'); ?>
 		<?php  # get_template_part('template-parts/home/greeting'); ?>
 		<?php # get_template_part('template-parts/home/network'); ?>
 		<?php get_template_part('template-parts/home/purpose'); ?>

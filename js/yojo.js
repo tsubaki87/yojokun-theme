@@ -807,3 +807,71 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 }, false);
 // 役員の表（トップ）: 行のどこを押しても、その行の名前のリンク先へ移る ============================== end
+
+
+// 役員からのご挨拶（トップ）: カードを右から左へ流し続ける ==============================
+// 見えたら、先頭（代表理事）のカードが右端から入ってくる。マウスを乗せている間・指で触れている間は止まる
+document.addEventListener("DOMContentLoaded", function () {
+  const wrap = document.querySelector('.greeting-carousel');
+  if (!wrap) return;
+  const track = wrap.querySelector('.greeting-carousel__track');
+  const cards = Array.from(track.children);
+  if (!cards.length) return;
+
+  // 動きを減らす設定の方には流さず、指やスクロールで横に動かせるだけにする
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    wrap.classList.add('is-static');
+    return;
+  }
+
+  const speed = 40; // 1 秒に進む px
+  let setWidth = 0; // カード 1 そろい分の幅
+  let x = 0;
+  let paused = false;
+  let started = false;
+  let lastTime = null;
+
+  // 流れ続けて見えるように、画面の幅を埋めるまでカードの写しを足す（写しは読み上げ・Tab の対象にしない）
+  function fillTrack() {
+    setWidth = cards.reduce((sum, card) => sum + card.offsetWidth + parseFloat(getComputedStyle(card).marginRight), 0);
+    while (track.scrollWidth < setWidth + wrap.clientWidth) {
+      cards.forEach((card) => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.querySelectorAll('a').forEach((a) => a.setAttribute('tabindex', '-1'));
+        track.appendChild(clone);
+      });
+    }
+  }
+
+  function step(time) {
+    if (lastTime !== null && !paused) {
+      const dt = Math.min(time - lastTime, 100) / 1000; // タブを離れて戻ったときに大きく跳ばないように
+      x -= speed * dt;
+      if (x <= -setWidth) x += setWidth;
+      track.style.transform = 'translateX(' + x + 'px)';
+    }
+    lastTime = time;
+    requestAnimationFrame(step);
+  }
+
+  fillTrack();
+  x = wrap.clientWidth; // 先頭のカードを右端の外に置いておく
+  track.style.transform = 'translateX(' + x + 'px)';
+
+  new IntersectionObserver((entries, observer) => {
+    if (!entries[0].isIntersecting || started) return;
+    started = true;
+    observer.disconnect();
+    requestAnimationFrame(step);
+  }, { threshold: 0.3 }).observe(wrap);
+
+  wrap.addEventListener('mouseenter', () => { paused = true; });
+  wrap.addEventListener('mouseleave', () => { paused = false; });
+  wrap.addEventListener('focusin', () => { paused = true; });
+  wrap.addEventListener('focusout', () => { paused = false; });
+  wrap.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+  wrap.addEventListener('touchend', () => { paused = false; });
+  window.addEventListener('resize', fillTrack);
+}, false);
+// 役員からのご挨拶（トップ）: カードを右から左へ流し続ける ============================== end

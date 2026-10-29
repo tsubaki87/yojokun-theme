@@ -591,6 +591,12 @@ body.home {
             }
             // 役員の表 ==================== 各セルに余白を入れて見やすく
             .supporter_wrap.board-member {
+                // 見出しの下の案内（表の肩書きのセルと同じ大きさ）
+                .board-member-note {
+                    font-size: .9rem;
+                    line-height: 1.2rem;
+                    text-align: center;
+                }
                 .wp-block-table {
                     table {
                         tbody {
@@ -924,5 +930,86 @@ body.home {
             }
         }
     }
+
+    // 役員からのご挨拶 ==================== カードを右から左へ流し続ける（動きは js/yojo.js）
+    .home-greeting-carousel {
+        padding: 60px 0 40px;
+        .title {
+            margin-bottom: 24px;
+            padding: 0 20px;
+            h3 {
+                margin: 0;
+            }
+        }
+        .greeting-carousel {
+            overflow: hidden;
+            &.is-static {
+                // 動きを減らす設定の方は、横にスクロールして見る
+                overflow-x: auto;
+            }
+        }
+        .greeting-carousel__track {
+            display: flex;
+            width: max-content;
+            margin: 0;
+            padding: 8px 0 16px;
+            list-style: none;
+            will-change: transform;
+        }
+        .greeting-card {
+            flex: 0 0 220px;
+            margin: 0 24px 0 0; // 写しとつないだときも同じ間になるように、右にだけ間をとる
+            a {
+                display: block;
+                height: 100%;
+                padding: 16px 16px 20px;
+                background-color: #f5f5f5;
+                border-radius: 4px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+                color: #333;
+                text-align: center;
+                text-decoration: none;
+                transition: box-shadow .2s;
+                &:hover,
+                &:focus-visible {
+                    box-shadow: 0 4px 16px rgba(0, 0, 0, .18);
+                }
+            }
+        }
+        .greeting-card__photo {
+            aspect-ratio: 4 / 5;
+            margin-bottom: 12px;
+            overflow: hidden;
+            background-color: #e6e6e6;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+            }
+        }
+        .greeting-card__org {
+            margin: 0;
+            font-size: .75rem;
+            color: #666;
+        }
+        .greeting-card__role {
+            margin: 6px 0 0;
+            font-size: .9rem;
+        }
+        .greeting-card__name {
+            margin: 2px 0 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: .05em;
+        }
+        @include media(sm) {
+            .greeting-card {
+                flex-basis: 180px;
+                margin-right: 16px;
+            }
+        }
+    }
+    // 役員からのご挨拶 ==================== end
 
 }
