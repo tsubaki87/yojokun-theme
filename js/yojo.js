@@ -793,3 +793,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 }, false);
 // site-navigation-fixed    Control checkbox for hamburger-btn-check on TOP-page ============================== end
+
+// 役員の表（トップ）: 行のどこを押しても、その行の名前のリンク先へ移る ==============================
+document.addEventListener("DOMContentLoaded", function () {
+  const boardRows = document.querySelectorAll('.supporter_wrap.board-member tbody tr');
+  Array.from(boardRows).forEach((tr) => {
+    const link = tr.querySelector('a[href]');
+    if (!link) return;
+    tr.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return; // リンクそのものを押したときは、ふつうに動かす
+      window.location.href = link.href;
+    });
+  });
+}, false);
+// 役員の表（トップ）: 行のどこを押しても、その行の名前のリンク先へ移る ============================== end

@@ -599,6 +599,13 @@ body.home {
                                     padding: 12px 16px;
                                 }
                             }
+                            // リンクのある行は、どこに乗せても色をつける（押すと名前のリンク先へ。js/yojo.js）
+                            tr:has(a):hover {
+                                cursor: pointer;
+                                td {
+                                    background-color: #f3e3e4; // エンジ色（#86040e）をうすくした色
+                                }
+                            }
                         }
                     }
                 }
