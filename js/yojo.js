@@ -851,10 +851,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // とぎれずに続いて見えるように、画面の幅を埋めるまでカードの写しを足す（写しは読み上げ・Tab の対象にしない）
+  // 足りるかどうかは「枚数 × 1 枚分の幅」で決める（Safari は track.scrollWidth を写真のもとの大きさで広く測り、写しが足されないことがあるため）
   function fillTrack() {
     step = cards[0].offsetWidth + parseFloat(getComputedStyle(cards[0]).marginRight);
     setWidth = step * cards.length;
-    while (track.scrollWidth < setWidth + wrap.clientWidth + step) {
+    while (track.children.length * step < setWidth + wrap.clientWidth + step) {
       cards.forEach((card) => {
         const clone = card.cloneNode(true);
         clone.setAttribute('aria-hidden', 'true');
